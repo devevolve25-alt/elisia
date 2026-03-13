@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contos de Luz e Sombras - Landing Page</title>
+<style>
+    /* Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: 'Georgia', serif;
+        background: linear-gradient(135deg, #1a1a1a, #333333);
+        color: #f0ebe3;
+        line-height: 1.6;
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        background-attachment: fixed;
+    }
+    header {
+        width: 100%;
+        max-width: 900px;
+        display: flex;
+        justify-content: flex-end;
+        padding-bottom: 40px;
+        border-bottom: 1px solid #555;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: saturate(180%) blur(4px);
+        border-radius: 8px;
+    }
+    header a {
+        text-decoration: none;
+        background: #bfa76a;
+        color: #1b1b1b;
+        padding: 14px 28px;
+        border-radius: 30px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: background 0.3s ease, color 0.3s ease;
+        box-shadow: 0 4px 12px rgba(191, 167, 106, 0.6);
+        user-select: none;
+    }
+    header a:hover {
+        background: #f3e6ba;
+        color: #111;
+        box-shadow: 0 6px 18px rgba(243, 230, 186, 0.9);
+    }
+    main {
+        width: 100%;
+        max-width: 900px;
+        margin-top: 40px;
+    }
+    .section {
+        margin-bottom: 60px;
+    }
+    .title {
+        font-size: 3rem;
+        font-weight: 900;
+        margin-bottom: 20px;
+        text-align: center;
+        letter-spacing: 2px;
+        text-shadow:
+            0 0 8px #bfa76a,
+            0 0 15px rgba(191, 167, 106, 0.7);
+        user-select: none;
+        font-family: 'Playfair Display', serif;
+    }
+    .subtitle {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 25px;
+        color: #d9cfa6;
+        text-align: center;
+        font-style: italic;
+        user-select: none;
+        font-family: 'Georgia', serif;
+    }
+    .text-block {
+        background: rgba(31, 31, 31, 0.8);
+        padding: 30px 35px;
+        border-radius: 15px;
+        box-shadow: 0 8px 24px rgba(191, 167, 106, 0.4);
+        font-size: 1.15rem;
+        color: #dbd3b3;
+        font-family: 'Georgia', serif;
+        line-height: 1.75;
+    }
+    .image-box {
+        width: 100%;
+        height: 320px;
+        background-color: #4a4639;
+        border-radius: 15px;
+        margin: 30px auto 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #d9cfa6;
+        font-size: 2rem;
+        font-family: 'Playfair Display', serif;
+        letter-spacing: 1.5px;
+        user-select: none;
+        box-shadow:
+            0 0 15px #bfa76a,
+            inset 0 0 40px #a68e54;
+        text-shadow: 0 0 8px #f0e9c3;
+    }
+    .cta-button {
+        display: inline-block;
+        margin-top: 35px;
+        padding: 18px 48px;
+        background: linear-gradient(135deg, #bfa76a, #f3e6ba);
+        color: #3a2e0f;
+        font-weight: 800;
+        font-size: 1.2rem;
+        border-radius: 35px;
+        text-decoration: none;
+        transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 6px 20px rgba(191, 167, 106, 0.8);
+        font-family: 'Playfair Display', serif;
+        user-select: none;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    .cta-button:hover {
+        background: linear-gradient(135deg, #f3e6ba, #bfa76a);
+        color: #2b2105;
+        box-shadow: 0 8px 28px rgba(243, 230, 186, 0.9);
+    }
+    footer {
+        width: 100%;
+        max-width: 900px;
+        text-align: center;
+        margin-top: 90px;
+        padding-top: 20px;
+        border-top: 1px solid #555;
+        font-size: 0.95rem;
+        color: #9a8f6a;
+        font-family: 'Georgia', serif;
+        user-select: none;
+    }
+    @media (max-width: 600px) {
+        .title {
+            font-size: 2.2rem;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+        }
+        .image-box {
+            height: 220px;
+            font-size: 1.6rem;
+        }
+        header {
+            justify-content: center;
+            padding-bottom: 30px;
+            border-radius: 10px;
+        }
+        header a {
+            padding: 12px 32px;
+            font-size: 1rem;
+        }
+    }
+</style>
+</head>
+<body>
+<header>
+    <a href="checkout.html">Comprar Agora</a>
+</header>
+<main>
+    <section class="section">
+        <h1 class="title">Contos de Luz e Sombras</h1>
+        <div class="image-box">Capa do Livro</div>
+        <p class="subtitle">Histórias que iluminam as profundezas da alma.</p>
+        <a href="checkout.html" class="cta-button">Comprar Agora</a>
+    </section>
+
+    <section class="section">
+        <h2 class="title">Sobre o Livro</h2>
+        <div class="text-block">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus malesuada, sapien nec laoreet luctus, urna elit tincidunt ex, ac sollicitudin dui mauris nec neque. Etiam ornare velit quis sapien fringilla, non efficitur purus convallis.</p>
+            <p>Curabitur vel feugiat magna. Praesent convallis, est a dignissim cursus, risus quam tincidunt metus, nec tincidunt arcu sapien eget erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="title">Por Que Ler?</h2>
+        <div class="text-block">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac vehicula purus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed vitae cursus nisl. Integer nec facilisis ante.</p>
+            <p>Phasellus ullamcorper urna sit amet ante ultricies, et blandit metus tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+        </div>
+        <a href="checkout.html" class="cta-button">Adquira Seu Exemplar</a>
+    </section>
+</main>
+<footer>
+    &copy; 2026 BookStore. Todos os direitos reservados.
+</footer>
+</body>
+</html>

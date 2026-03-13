@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BookStore - Obra Prima da Leitura</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap');
+    /* Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Open Sans', sans-serif;
+        background: linear-gradient(135deg, #121212 0%, #2b2b2b 100%);
+        color: #ddd;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+    }
+
+    header {
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 50px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #7a5c3b;
+    }
+
+    header h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.8rem;
+        color: #e0c097;
+        letter-spacing: 2px;
+        text-shadow: 1px 1px 3px #7a5c3b;
+        cursor: default;
+    }
+
+    header input[type="search"] {
+        width: 350px;
+        padding: 12px 18px;
+        border: 3px solid #7a5c3b;
+        border-radius: 50px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+        font-family: 'Open Sans', sans-serif;
+        color: #e0c097;
+        background-color: #1e1e1e;
+    }
+    header input[type="search"]::placeholder {
+        color: #b29a73;
+        font-style: italic;
+    }
+    header input[type="search"]:focus {
+        outline: none;
+        border-color: #c9a96e;
+        box-shadow: 0 0 8px #c9a96eaa;
+        background-color: #2a2a2a;
+        color: #f0deb3;
+    }
+
+    main {
+        display: flex;
+        max-width: 1200px;
+        gap: 40px;
+        background: #1e1a16;
+        border-radius: 15px;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.8);
+        padding: 40px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .product-image {
+        flex: 1 1 350px;
+        max-width: 400px;
+        height: 580px;
+        background: linear-gradient(135deg, #5a4a37, #3b2c1c);
+        border-radius: 20px;
+        box-shadow: inset 0 0 30px #3f3428, 0 8px 20px rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #e6d9c4;
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8rem;
+        text-align: center;
+        padding: 20px;
+        letter-spacing: 1.2px;
+        cursor: default;
+        user-select: none;
+        position: relative;
+        overflow: hidden;
+    }
+    .product-image::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=500&q=80') no-repeat center/cover;
+        opacity: 0.12;
+        filter: grayscale(40%);
+        border-radius: 20px;
+        pointer-events: none;
+    }
+
+    .product-details {
+        flex: 1 1 500px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        color: #d8c6ad;
+        font-weight: 600;
+    }
+
+    .product-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        color: #e0c097;
+        line-height: 1.15;
+        letter-spacing: 0.8px;
+        user-select: none;
+        text-shadow: 1px 1px 3px #3b2c1c;
+    }
+
+    .author {
+        font-size: 1.3rem;
+        font-style: italic;
+        color: #b29a73;
+    }
+
+    .rating {
+        font-size: 1.2rem;
+        color: #d9a72c;
+        user-select: none;
+    }
+
+    .price {
+        font-size: 2.8rem;
+        font-weight: 900;
+        color: #b76e3c;
+        letter-spacing: 1.2px;
+        text-shadow: 1px 1px 0 #f5dba3;
+    }
+
+    .buy-button {
+        background: linear-gradient(45deg, #b76e3c, #7a4b27);
+        border: none;
+        padding: 18px 0;
+        font-size: 1.6rem;
+        font-weight: 700;
+        border-radius: 50px;
+        color: #fff8f0;
+        cursor: pointer;
+        box-shadow: 0 6px 15px rgba(123, 77, 35, 0.8);
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+        user-select: none;
+        width: 240px;
+        align-self: flex-start;
+        letter-spacing: 1px;
+        font-family: 'Playfair Display', serif;
+    }
+    .buy-button:hover {
+        background: linear-gradient(45deg, #7a4b27, #522f14);
+        box-shadow: 0 8px 25px rgba(82, 47, 20, 0.9);
+    }
+    .buy-button:active {
+        transform: scale(0.96);
+        box-shadow: 0 5px 12px rgba(82, 47, 20, 0.7);
+    }
+
+    .product-description {
+        font-size: 1.1rem;
+        font-weight: 500;
+        line-height: 1.6;
+        color: #c9b396;
+        border-top: 2px solid #7a5c3b;
+        padding-top: 20px;
+        font-family: 'Open Sans', sans-serif;
+        user-select: text;
+    }
+
+    .additional-info {
+        margin-top: 25px;
+        font-size: 1rem;
+        color: #a78a5d;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px 25px;
+        font-weight: 600;
+    }
+    .additional-info > p {
+        background: #3c311b;
+        padding: 12px 18px;
+        border-radius: 12px;
+        box-shadow: 1px 1px 6px #2a2112 inset;
+        user-select: text;
+    }
+
+    footer {
+        margin-top: 70px;
+        font-family: 'Open Sans', sans-serif;
+        color: #7a5c3b;
+        font-size: 0.9rem;
+        user-select: none;
+        text-align: center;
+    }
+
+    @media (max-width: 900px) {
+        main {
+            flex-direction: column;
+            padding: 30px 20px;
+        }
+        .product-image, .product-details {
+            max-width: 100%;
+            flex: none;
+        }
+        header {
+            flex-direction: column;
+            gap: 15px;
+        }
+        header input[type="search"] {
+            width: 100%;
+            max-width: 400px;
+        }
+        .buy-button {
+            width: 100%;
+            text-align: center;
+        }
+    }
+</style>
+</head>
+<body>
+<header>
+    <h1>BookStore</h1>
+    <input type="search" placeholder="Buscar livros, autores, ISBN..." />
+</header>
+<main>
+    <div class="product-image" aria-label="Imagem do livro Lorem Ipsum Dolor Sit Amet">
+        Lorem Ipsum Dolor Sit Amet
+    </div>
+    <div class="product-details">
+        <h2 class="product-title">Lorem Ipsum Dolor Sit Amet</h2>
+        <p class="author">Autor: John Doe</p>
+        <p class="rating" aria-label="Avaliação 5 estrelas">★★★★★ (123 avaliações)</p>
+        <p class="price" aria-label="Preço cinquenta reais e noventa centavos">R$ 49,90</p>
+        <button class="buy-button" aria-label="Comprar agora o livro Lorem Ipsum Dolor Sit Amet">Comprar Agora</button>
+        <p class="product-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Esta obra traz uma experiência literária profunda e envolvente, despertando emoções e reflexão.
+        </p>
+        <div class="additional-info">
+            <p><strong>Editora:</strong> Lorem Publisher</p>
+            <p><strong>Páginas:</strong> 320</p>
+            <p><strong>Idioma:</strong> Português</p>
+            <p><strong>ISBN:</strong> 123-4567890123</p>
+        </div>
+    </div>
+</main>
+<footer>
+    &copy; 2026 BookStore. Todos os direitos reservados.
+</footer>
+</body>
+</html>
