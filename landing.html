@@ -27,15 +27,28 @@
         width: 100%;
         max-width: 900px;
         display: flex;
-        justify-content: flex-end;
-        padding-bottom: 40px;
+        flex-direction: column; /* empilha verticalmente */
+        align-items: center; /* centraliza horizontalmente */
+        padding: 20px 0 40px 0;
         border-bottom: 1px solid #555;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
         background: rgba(0, 0, 0, 0.5);
         backdrop-filter: saturate(180%) blur(4px);
         border-radius: 8px;
+        gap: 20px; /* espaçamento entre título e botão */
     }
-    header a {
+    .header-title {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        font-size: 2.5rem;
+        color: #f0ebe3;
+        user-select: none;
+        margin: 0;
+        text-shadow:
+            0 0 8px #bfa76a,
+            0 0 15px rgba(191, 167, 106, 0.7);
+    }
+    .header-cta-button {
         text-decoration: none;
         background: #bfa76a;
         color: #1b1b1b;
@@ -46,8 +59,9 @@
         transition: background 0.3s ease, color 0.3s ease;
         box-shadow: 0 4px 12px rgba(191, 167, 106, 0.6);
         user-select: none;
+        display: inline-block;
     }
-    header a:hover {
+    .header-cta-button:hover {
         background: #f3e6ba;
         color: #111;
         box-shadow: 0 6px 18px rgba(243, 230, 186, 0.9);
@@ -94,22 +108,16 @@
     }
     .image-box {
         width: 100%;
-      /*  height: 320px; */
-      /*  background-color: #4a4639; */
-     /* border-radius: 15px; */
         margin: 30px auto 20px;
         display: flex;
         align-items: center;
         justify-content: center;
-     /* color: #d9cfa6; */
-        font-size: 2rem;
-        font-family: 'Playfair Display', serif;
-        letter-spacing: 1.5px;
-        user-select: none;
-      /* box-shadow:
-            0 0 15px #bfa76a,
-            inset 0 0 40px #a68e54;
-        text-shadow: 0 0 8px #f0e9c3; */
+    }
+    .image-box img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        border-radius: 15px;
     }
     .cta-button {
         display: inline-block;
@@ -154,15 +162,16 @@
             font-size: 1.2rem;
         }
         .image-box {
-            height: 220px;
             font-size: 1.6rem;
         }
         header {
-            justify-content: center;
             padding-bottom: 30px;
             border-radius: 10px;
         }
-        header a {
+        .header-title {
+            font-size: 1.8rem;
+        }
+        .header-cta-button {
             padding: 12px 32px;
             font-size: 1rem;
         }
@@ -171,12 +180,15 @@
 </head>
 <body>
 <header>
-    <a href="checkout.html">Comprar Agora</a>
+    <h1 class="header-title">Contos de Luz e Sombra</h1>
+    <a href="checkout.html" class="header-cta-button">Comprar Agora</a>
 </header>
 <main>
     <section class="section">
         <h1 class="title">Contos de Luz e Sombras</h1>
-        <div class="image-box"><img src="https://htsorgukdbfuuypiuksm.supabase.co/storage/v1/object/public/audio/capa_elisia.png" alt="Contos de luz e sombra - A queda de Elísia. Psicografia de Rogerio Silva. Ilustrações de Ramona Lopes."></div>
+        <div class="image-box">
+            <img src="https://htsorgukdbfuuypiuksm.supabase.co/storage/v1/object/public/audio/capa_elisia.png" alt="Contos de luz e sombra - A queda de Elísia. Psicografia de Rogerio Silva. Ilustrações de Ramona Lopes.">
+        </div>
         <p class="subtitle">Histórias que iluminam as profundezas da alma.</p>
         <a href="checkout.html" class="cta-button">Comprar Agora</a>
     </section>
